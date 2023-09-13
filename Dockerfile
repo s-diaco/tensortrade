@@ -1,10 +1,10 @@
-FROM tensorflow/tensorflow:2.7.0-gpu
+FROM tensorflow/tensorflow:2.13
 
-ENV NVIDIA_VISIBLE_DEVICES \
-    ${NVIDIA_VISIBLE_DEVICES:-all}
+# ENV NVIDIA_VISIBLE_DEVICES \
+#     ${NVIDIA_VISIBLE_DEVICES:-all}
 
-ENV NVIDIA_DRIVER_CAPABILITIES \
-    ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
+# ENV NVIDIA_DRIVER_CAPABILITIES \
+#     ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
 
 # Ensure apt-get won't prompt for selecting options
 ENV DEBIAN_FRONTEND=noninteractive
@@ -37,5 +37,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* ta-lib-0.4.0-src.tar.gz
 
 # Faster compilation for tests
-RUN pip3 install --no-cache-dir -e ".[docs,tests]"
+# RUN pip3 install --no-cache-dir -e ".[docs,tests]"
+RUN pip3 install tensortrade
 
