@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:2.13
+FROM tensorflow/tensorflow:2.13.0
 
 # ENV NVIDIA_VISIBLE_DEVICES \
 #     ${NVIDIA_VISIBLE_DEVICES:-all}
